@@ -32,6 +32,7 @@
     if ([self isPad]) {
         _titleLabel.font = [UIFont systemFontOfSize:50];
         _versionLabel.font = [UIFont systemFontOfSize:30];
+        _copyrightButton.font = [UIFont systemFontOfSize:30];
         _copyrightWidth.constant = 400;
         _copyrightHeight.constant = 100;
         _closeWidth.constant = 60;
