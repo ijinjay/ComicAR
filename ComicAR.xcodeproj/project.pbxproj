@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300AA3E21A81B7F70085AADA /* BriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AA3E11A81B7F70085AADA /* BriefViewController.m */; };
+		300AA3E41A8218090085AADA /* gtk_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 300AA3E31A8218090085AADA /* gtk_cancel.png */; };
+		300AA3E61A8227AB0085AADA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AA3E51A8227AB0085AADA /* AboutViewController.m */; };
+		30652F561A807DEB005A27DE /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 30652F551A807DEB005A27DE /* switch_camera.png */; };
+		30652F591A8081B4005A27DE /* CameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30652F581A8081B4005A27DE /* CameraViewController.mm */; };
+		30652F5B1A809847005A27DE /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F5A1A809847005A27DE /* opencv2.framework */; };
+		30652F5D1A809851005A27DE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F5C1A809851005A27DE /* AVFoundation.framework */; };
+		30652F5F1A809859005A27DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F5E1A809859005A27DE /* Accelerate.framework */; };
+		30652F611A809874005A27DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F601A809874005A27DE /* QuartzCore.framework */; };
+		30652F631A809883005A27DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F621A809883005A27DE /* UIKit.framework */; };
+		30652F651A809D52005A27DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F641A809D52005A27DE /* CoreGraphics.framework */; };
+		30652F671A809D70005A27DE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F661A809D70005A27DE /* CoreMotion.framework */; };
+		30652F691A809D8C005A27DE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F681A809D8C005A27DE /* OpenGLES.framework */; };
+		30652F6B1A809DE5005A27DE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F6A1A809DE5005A27DE /* CoreMedia.framework */; };
+		30652F6D1A809E36005A27DE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30652F6C1A809E36005A27DE /* CoreVideo.framework */; };
+		30652F701A80A703005A27DE /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30652F6F1A80A703005A27DE /* CameraView.m */; };
 		306DFC031A7F8AE600E78693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 306DFC021A7F8AE600E78693 /* main.m */; };
 		306DFC061A7F8AE600E78693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 306DFC051A7F8AE600E78693 /* AppDelegate.m */; };
 		306DFC091A7F8AE600E78693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306DFC081A7F8AE600E78693 /* ViewController.m */; };
@@ -27,6 +43,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300AA3E01A81B7DD0085AADA /* BriefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefViewController.h; sourceTree = "<group>"; };
+		300AA3E11A81B7F70085AADA /* BriefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefViewController.m; sourceTree = "<group>"; };
+		300AA3E31A8218090085AADA /* gtk_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtk_cancel.png; sourceTree = "<group>"; };
+		300AA3E51A8227AB0085AADA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		30652F551A807DEB005A27DE /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
+		30652F571A80814B005A27DE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		30652F581A8081B4005A27DE /* CameraViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraViewController.mm; sourceTree = "<group>"; };
+		30652F5A1A809847005A27DE /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../Downloads/opencv2.framework; sourceTree = "<group>"; };
+		30652F5C1A809851005A27DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		30652F5E1A809859005A27DE /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		30652F601A809874005A27DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		30652F621A809883005A27DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		30652F641A809D52005A27DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		30652F661A809D70005A27DE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		30652F681A809D8C005A27DE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		30652F6A1A809DE5005A27DE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		30652F6C1A809E36005A27DE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		30652F6E1A80A703005A27DE /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
+		30652F6F1A80A703005A27DE /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 		306DFBFD1A7F8AE600E78693 /* ComicAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		306DFC011A7F8AE600E78693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		306DFC021A7F8AE600E78693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +75,7 @@
 		306DFC161A7F8AE600E78693 /* ComicARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComicARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		306DFC1B1A7F8AE600E78693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		306DFC1C1A7F8AE600E78693 /* ComicARTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComicARTests.m; sourceTree = "<group>"; };
+		3092C69A1A823EB6007498E2 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +83,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30652F6D1A809E36005A27DE /* CoreVideo.framework in Frameworks */,
+				30652F671A809D70005A27DE /* CoreMotion.framework in Frameworks */,
+				30652F6B1A809DE5005A27DE /* CoreMedia.framework in Frameworks */,
+				30652F691A809D8C005A27DE /* OpenGLES.framework in Frameworks */,
+				30652F651A809D52005A27DE /* CoreGraphics.framework in Frameworks */,
+				30652F631A809883005A27DE /* UIKit.framework in Frameworks */,
+				30652F611A809874005A27DE /* QuartzCore.framework in Frameworks */,
+				30652F5F1A809859005A27DE /* Accelerate.framework in Frameworks */,
+				30652F5D1A809851005A27DE /* AVFoundation.framework in Frameworks */,
+				30652F5B1A809847005A27DE /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +106,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30652F711A80C840005A27DE /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				30652F6C1A809E36005A27DE /* CoreVideo.framework */,
+				30652F6A1A809DE5005A27DE /* CoreMedia.framework */,
+				30652F681A809D8C005A27DE /* OpenGLES.framework */,
+				30652F661A809D70005A27DE /* CoreMotion.framework */,
+				30652F641A809D52005A27DE /* CoreGraphics.framework */,
+				30652F621A809883005A27DE /* UIKit.framework */,
+				30652F601A809874005A27DE /* QuartzCore.framework */,
+				30652F5E1A809859005A27DE /* Accelerate.framework */,
+				30652F5C1A809851005A27DE /* AVFoundation.framework */,
+				30652F5A1A809847005A27DE /* opencv2.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		306DFBF41A7F8AE600E78693 = {
 			isa = PBXGroup;
 			children = (
 				306DFBFF1A7F8AE600E78693 /* ComicAR */,
+				30652F711A80C840005A27DE /* Framework */,
 				306DFC191A7F8AE600E78693 /* ComicARTests */,
 				306DFBFE1A7F8AE600E78693 /* Products */,
 			);
@@ -83,9 +147,19 @@
 			children = (
 				306DFC041A7F8AE600E78693 /* AppDelegate.h */,
 				306DFC051A7F8AE600E78693 /* AppDelegate.m */,
+				30652F6E1A80A703005A27DE /* CameraView.h */,
+				30652F6F1A80A703005A27DE /* CameraView.m */,
 				306DFC071A7F8AE600E78693 /* ViewController.h */,
 				306DFC081A7F8AE600E78693 /* ViewController.m */,
+				30652F571A80814B005A27DE /* CameraViewController.h */,
+				30652F581A8081B4005A27DE /* CameraViewController.mm */,
+				300AA3E01A81B7DD0085AADA /* BriefViewController.h */,
+				300AA3E11A81B7F70085AADA /* BriefViewController.m */,
+				3092C69A1A823EB6007498E2 /* AboutViewController.h */,
+				300AA3E51A8227AB0085AADA /* AboutViewController.m */,
 				306DFC0A1A7F8AE600E78693 /* Main.storyboard */,
+				300AA3E31A8218090085AADA /* gtk_cancel.png */,
+				30652F551A807DEB005A27DE /* switch_camera.png */,
 				306DFC0D1A7F8AE600E78693 /* Images.xcassets */,
 				306DFC0F1A7F8AE600E78693 /* LaunchScreen.xib */,
 				306DFC001A7F8AE600E78693 /* Supporting Files */,
@@ -199,8 +273,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300AA3E41A8218090085AADA /* gtk_cancel.png in Resources */,
 				306DFC0C1A7F8AE600E78693 /* Main.storyboard in Resources */,
 				306DFC111A7F8AE600E78693 /* LaunchScreen.xib in Resources */,
+				30652F561A807DEB005A27DE /* switch_camera.png in Resources */,
 				306DFC0E1A7F8AE600E78693 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				306DFC091A7F8AE600E78693 /* ViewController.m in Sources */,
+				300AA3E21A81B7F70085AADA /* BriefViewController.m in Sources */,
+				30652F591A8081B4005A27DE /* CameraViewController.mm in Sources */,
+				300AA3E61A8227AB0085AADA /* AboutViewController.m in Sources */,
+				30652F701A80A703005A27DE /* CameraView.m in Sources */,
 				306DFC061A7F8AE600E78693 /* AppDelegate.m in Sources */,
 				306DFC031A7F8AE600E78693 /* main.m in Sources */,
 			);
@@ -345,9 +425,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jinjie/Downloads,
+				);
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = ComicAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -355,9 +441,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jinjie/Downloads,
+				);
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = ComicAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -414,6 +506,7 @@
 				306DFC221A7F8AE600E78693 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		306DFC231A7F8AE600E78693 /* Build configuration list for PBXNativeTarget "ComicARTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +515,7 @@
 				306DFC251A7F8AE600E78693 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
