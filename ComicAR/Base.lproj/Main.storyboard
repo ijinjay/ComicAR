@@ -240,6 +240,9 @@
                                         <state key="normal" title="表情识别">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="faceDetect:" destination="e7X-Es-Whg" eventType="touchDown" id="Z5j-7L-UlV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

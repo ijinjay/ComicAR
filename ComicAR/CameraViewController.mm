@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *voiceButton;
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
 @property (weak, nonatomic) IBOutlet UIButton *expressionButton;
+- (IBAction)faceDetect:(id)sender;
 
 
 // cameraView相关，处理照相机的输入输出
@@ -32,7 +33,15 @@
 @property (nonatomic) NSInteger                 sampleTimes;
 @property (nonatomic) BOOL                      isRunning;
 
+// 识别动漫图形
+@property (nonatomic) BOOL isNeedRecognizePic;
+@property (nonatomic) BOOL isRecognizeSuccess;
+
 // 3D model相关，使用Metal技术优化
+
+// Face detect 人脸检测，上传人脸部分图片，通过调用face ++接口获取任务表情
+@property (nonatomic) BOOL isNeedDetectFace;
+@property (nonatomic) BOOL isDetectSuccess;
 
 @end
 
@@ -190,7 +199,26 @@ BOOL isPad() {
     self.sampleTimes ++;
     if (_sampleTimes % 5 == 0) {
         UIImage *image = [self UIImageFromCVMat:[self cvMatFromSampleBuffer:sampleBuffer]];
-        NSLog(@"image size %lf, %lf", image.size.width, image.size.height);
+//        NSLog(@"image size %lf, %lf", image.size.width, image.size.height);
+        if (_isNeedRecognizePic) {
+            // recognize comic picture
+            NSLog(@"recognize picture success");
+            _isRecognizeSuccess = YES;
+            [_snapButton setEnabled:YES];
+            [_expressionButton setEnabled:YES];
+            [_voiceButton setEnabled:YES];
+            _isNeedRecognizePic = NO;
+        }
+        if (_isNeedDetectFace) {
+            // detect Face
+            _isDetectSuccess = YES;
+            _isNeedDetectFace = NO;
+            
+            if (_isDetectSuccess) {
+                NSLog(@"user expressions");
+            }
+            [_expressionButton setEnabled:YES];
+        }
     }
     if (_sampleTimes == 6) {
         _sampleTimes = 1;
@@ -256,7 +284,17 @@ BOOL isPad() {
         colorIndex = (colorIndex + 1)%([user integerForKey:@"colorcount"]);
         [user setInteger:colorIndex forKey:@"colorIndex"];
     }
+    
+    // picture recognize
+    _isNeedRecognizePic = YES;
+    _isRecognizeSuccess = NO;
+    [_expressionButton setEnabled:NO];
+    [_snapButton setEnabled:NO];
+    [_voiceButton setEnabled:NO];
 
+    // face detect
+    _isNeedDetectFace = NO;
+    _isDetectSuccess = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -347,5 +385,10 @@ BOOL isPad() {
     if ([_session isRunning]) {
         [_session stopRunning];
     }
+}
+- (IBAction)faceDetect:(id)sender {
+    _isDetectSuccess = NO;
+    _isNeedDetectFace = YES;
+    [_expressionButton setEnabled:NO];
 }
 @end
