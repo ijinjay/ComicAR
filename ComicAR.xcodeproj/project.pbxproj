@@ -31,6 +31,8 @@
 		306DFC111A7F8AE600E78693 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306DFC0F1A7F8AE600E78693 /* LaunchScreen.xib */; };
 		306DFC1D1A7F8AE600E78693 /* ComicARTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 306DFC1C1A7F8AE600E78693 /* ComicARTests.m */; };
 		306F4B461A8398B9003D7AF4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306F4B451A8398B9003D7AF4 /* ImageIO.framework */; };
+		30FFB8DF1A8F129D002AE294 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FFB8DE1A8F129D002AE294 /* Metal.framework */; };
+		30FFB8E11A8F1E08002AE294 /* MyShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 30FFB8E01A8F1E08002AE294 /* MyShader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		306DFC1C1A7F8AE600E78693 /* ComicARTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComicARTests.m; sourceTree = "<group>"; };
 		306F4B451A8398B9003D7AF4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		3092C69A1A823EB6007498E2 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		30FFB8DE1A8F129D002AE294 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		30FFB8E01A8F1E08002AE294 /* MyShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MyShader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30FFB8DF1A8F129D002AE294 /* Metal.framework in Frameworks */,
 				306F4B461A8398B9003D7AF4 /* ImageIO.framework in Frameworks */,
 				30652F6D1A809E36005A27DE /* CoreVideo.framework in Frameworks */,
 				30652F671A809D70005A27DE /* CoreMotion.framework in Frameworks */,
@@ -112,6 +117,7 @@
 		30652F711A80C840005A27DE /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				30FFB8DE1A8F129D002AE294 /* Metal.framework */,
 				306F4B451A8398B9003D7AF4 /* ImageIO.framework */,
 				30652F6C1A809E36005A27DE /* CoreVideo.framework */,
 				30652F6A1A809DE5005A27DE /* CoreMedia.framework */,
@@ -153,6 +159,7 @@
 				306DFC051A7F8AE600E78693 /* AppDelegate.m */,
 				30652F6E1A80A703005A27DE /* CameraView.h */,
 				30652F6F1A80A703005A27DE /* CameraView.m */,
+				30FFB8E01A8F1E08002AE294 /* MyShader.metal */,
 				306F4B441A8394AE003D7AF4 /* ViewControllers */,
 				306DFC0A1A7F8AE600E78693 /* Main.storyboard */,
 				300AA3E31A8218090085AADA /* gtk_cancel.png */,
@@ -311,6 +318,7 @@
 				300AA3E21A81B7F70085AADA /* BriefViewController.m in Sources */,
 				30652F591A8081B4005A27DE /* CameraViewController.mm in Sources */,
 				300AA3E61A8227AB0085AADA /* AboutViewController.m in Sources */,
+				30FFB8E11A8F1E08002AE294 /* MyShader.metal in Sources */,
 				30652F701A80A703005A27DE /* CameraView.m in Sources */,
 				306DFC061A7F8AE600E78693 /* AppDelegate.m in Sources */,
 				306DFC031A7F8AE600E78693 /* main.m in Sources */,

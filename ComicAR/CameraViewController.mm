@@ -11,6 +11,9 @@
 #import <opencv2/highgui/highgui_c.h>
 #import "CameraView.h"
 #import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/CAMetalLayer.h>
+#import <Metal/Metal.h>
+#import <GLKit/GLKMath.h>
 
 @interface CameraViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *changeButton;
@@ -37,15 +40,29 @@
 @property (nonatomic) BOOL isNeedRecognizePic;
 @property (nonatomic) BOOL isRecognizeSuccess;
 
-// 3D model相关，使用Metal技术优化
-
 // Face detect 人脸检测，上传人脸部分图片，通过调用face ++接口获取任务表情
 @property (nonatomic) BOOL isNeedDetectFace;
 @property (nonatomic) BOOL isDetectSuccess;
 
 @end
 
-@implementation CameraViewController
+@implementation CameraViewController {
+    // 3D model相关，使用Metal技术优化
+    id <MTLDevice> mtlDevice;
+    id <MTLCommandQueue> mtlCommandQueue;
+    MTLRenderPassDescriptor *mtlRenderPassDescriptor;
+    CAMetalLayer *metalLayer;
+    id <CAMetalDrawable> frameDrawable;
+    CADisplayLink *displayLink;
+    
+    MTLRenderPipelineDescriptor *renderPipelineDescriptor;
+    id <MTLRenderPipelineState> renderPipelineState;
+    id <MTLBuffer> object;
+}
+
+typedef struct {
+    GLKVector2 position;
+} Triangle;
 
 // CameraView Handle
 BOOL isPad() {
@@ -252,12 +269,9 @@ BOOL isPad() {
     }
     
     // cameraView
-    // specific session
     [self setupSession];
     [self checkDeviceAuthorizationStatus];
-    // input handle
     [self setupInput];
-    // output handle
     [self setupOutput];
     _isRunning = NO;
     _sampleTimes = 0;
@@ -295,8 +309,68 @@ BOOL isPad() {
     // face detect
     _isNeedDetectFace = NO;
     _isDetectSuccess = NO;
-}
+    
+    // 3D metal layer
+    mtlDevice = MTLCreateSystemDefaultDevice();
+    mtlCommandQueue = [mtlDevice newCommandQueue];
+    metalLayer = [CAMetalLayer layer];
+    [metalLayer setDevice:mtlDevice];
+    [metalLayer setPixelFormat:MTLPixelFormatA8Unorm];
+    metalLayer.framebufferOnly = YES;
+    [metalLayer setFrame:_CameraView.layer.frame];
+    metalLayer.backgroundColor = nil;
 
+    //
+//    renderPipelineDescriptor = [MTLRenderPipelineDescriptor new];
+//    renderPipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+//    
+//    [_CameraView.layer addSublayer:metalLayer];
+//    
+//    id <MTLLibrary> lib = [mtlDevice newDefaultLibrary];
+//    renderPipelineDescriptor.vertexFunction = [lib newFunctionWithName:@"VertexColor"];
+//    renderPipelineDescriptor.fragmentFunction = [lib newFunctionWithName:@"FragmentColor"];
+//    renderPipelineState = [mtlDevice newRenderPipelineStateWithDescriptor:renderPipelineDescriptor error: nil];
+//    
+//    Triangle triangle[3] = { { -.5f, 0.0f }, { 0.5f, 0.0f }, { 0.0f, 0.5f } };
+//    
+//    object = [mtlDevice newBufferWithBytes:&triangle length:sizeof(Triangle[3]) options:MTLResourceOptionCPUCacheModeDefault];
+//    
+//    
+//    displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(renderScene)];
+//    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+    
+}
+// metal render
+- (void)renderScene
+{
+    id <MTLCommandBuffer>mtlCommandBuffer = [mtlCommandQueue commandBuffer];
+    
+    while (!frameDrawable){
+        frameDrawable = [metalLayer nextDrawable];
+    }
+    
+    if (!mtlRenderPassDescriptor)
+        mtlRenderPassDescriptor = [MTLRenderPassDescriptor new];
+    
+    mtlRenderPassDescriptor.colorAttachments[0].texture = frameDrawable.texture;
+    mtlRenderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
+    mtlRenderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.75, 0.25, 1.0, 1.0);
+    mtlRenderPassDescriptor.colorAttachments[0].storeAction = MTLStoreActionStore;
+    
+    id <MTLRenderCommandEncoder> renderCommand = [mtlCommandBuffer renderCommandEncoderWithDescriptor: mtlRenderPassDescriptor];
+    // Draw objects here
+    // set MTLRenderPipelineState..
+    [renderCommand endEncoding];
+    [mtlCommandBuffer presentDrawable: frameDrawable];
+    [mtlCommandBuffer commit];
+    mtlRenderPassDescriptor = nil;
+    frameDrawable = nil;
+}
+- (void)dealloc {
+    [displayLink invalidate];
+    mtlDevice = nil;
+    mtlCommandQueue = nil;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -360,6 +434,11 @@ BOOL isPad() {
     //实例化
     CGPoint location = [sender locationInView:self.CameraView];
     AVCaptureDevice *captureDevice = [self device];
+    
+//    [_CameraView.layer addSublayer:metalLayer];
+//    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+    
+    
     //先进行判断是否支持控制对焦
     if (captureDevice.isFocusPointOfInterestSupported && [captureDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
         NSError *error = nil;
